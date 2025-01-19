@@ -53,7 +53,7 @@ export default function TabNav(): React.JSX.Element {
     };
   
     return (
-      <Provider>
+      // <Provider>
         <Tab.Navigator
           initialRouteName={data.init.home}
           screenOptions={{
@@ -86,30 +86,30 @@ export default function TabNav(): React.JSX.Element {
               ),
               headerLeft: UserHead,
               headerRight: () => (
-                <Menu
-                  visible={menuVisible.home}
-                  onDismiss={() => toggleMenu('home', false)}
-                  anchor={
-                    <TouchableOpacity
-                      onPress={() => toggleMenu('home', true)}
-                      style={style(customTheme,screenHeight).cdots}
-                    >
+                // <Menu
+                //   visible={menuVisible.home}
+                //   onDismiss={() => toggleMenu('home', false)}
+                //   anchor={
+                //     <TouchableOpacity
+                //       onPress={() => toggleMenu('home', true)}
+                //       style={style(customTheme,screenHeight).cdots}
+                //     >
                       <Text style={{ color: customTheme.colors.cdotsText }}>···</Text>
-                    </TouchableOpacity>
-                  }
-                  contentStyle={style(customTheme,screenHeight).menuHome}
-                >
-                  {menuItems.home.map((item, index) => (
-                    <Menu.Item
-                      key={index}
-                      onPress={() => {
-                        toggleMenu('home', false);
-                        item.onPress();
-                      }}
-                      title={item.label}
-                    />
-                  ))}
-                </Menu>
+                //     </TouchableOpacity>
+                //   }
+                //   contentStyle={style(customTheme,screenHeight).menuHome}
+                // >
+                //   {menuItems.home.map((item, index) => (
+                //     <Menu.Item
+                //       key={index}
+                //       onPress={() => {
+                //         toggleMenu('home', false);
+                //         item.onPress();
+                //       }}
+                //       title={item.label}
+                //     />
+                //   ))}
+                // </Menu>
               ),
             }}
           />
@@ -131,30 +131,30 @@ export default function TabNav(): React.JSX.Element {
               headerLeft: UserHead,
               headerTitleAlign: 'center',
               headerRight: () => (
-                <Menu
-                  visible={menuVisible.curriculum}
-                  onDismiss={() => toggleMenu('curriculum', false)}
-                  anchor={
-                    <TouchableOpacity
-                      onPress={() => toggleMenu('curriculum', true)}
-                      style={style(customTheme,screenHeight).cdots}
-                    >
+                // <Menu
+                //   visible={menuVisible.curriculum}
+                //   onDismiss={() => toggleMenu('curriculum', false)}
+                //   anchor={
+                //     <TouchableOpacity
+                //       onPress={() => toggleMenu('curriculum', true)}
+                //       style={style(customTheme,screenHeight).cdots}
+                //     >
                       <Text style={{ color: customTheme.colors.cdotsText }}>···</Text>
-                    </TouchableOpacity>
-                  }
-                  contentStyle={style(customTheme,screenHeight).menuOther}
-                >
-                  {menuItems.CurriculumScreen.map((item, index) => (
-                    <Menu.Item
-                      key={index}
-                      onPress={() => {
-                        toggleMenu('curriculum', false);
-                        item.onPress();
-                      }}
-                      title={item.label}
-                    />
-                  ))}
-                </Menu>
+                //     </TouchableOpacity>
+                //   }
+                //   contentStyle={style(customTheme,screenHeight).menuOther}
+                // >
+                //   {menuItems.CurriculumScreen.map((item, index) => (
+                //     <Menu.Item
+                //       key={index}
+                //       onPress={() => {
+                //         toggleMenu('curriculum', false);
+                //         item.onPress();
+                //       }}
+                //       title={item.label}
+                //     />
+                //   ))}
+                // </Menu>
               ),
             }}
           />
@@ -169,6 +169,6 @@ export default function TabNav(): React.JSX.Element {
             }}
           />
         </Tab.Navigator>
-      </Provider>
+      // </Provider>
     );
   }
