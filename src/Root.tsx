@@ -1,6 +1,6 @@
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Dimensions,  Platform, SafeAreaView } from 'react-native';
+import { Platform, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,6 +9,7 @@ import RecentActivityScreen from './screen/navScreen/RecentActivityScreen';
 import TabNav from './screen/navScreen/TabNav';
 import SearchTab from './component/nav/SearchTab';
 import ProfileScreen from './screen/mainTabScreen/ProfileScreen';
+import data from './component/data';
 import theme from './theme';
 
 //type类型
@@ -24,17 +25,12 @@ export type TabNavParamList = {
   Curriculum: undefined;
   Message: undefined;
 };
-//初始界面
-const init = { 
-  tab: 'Tab' as keyof StackNavParamList, 
-  home: 'Home' as keyof StackNavParamList 
-};
 const Stack = createNativeStackNavigator<StackNavParamList>();
 //Root
 function StackNav() : React.JSX.Element {
   return (
     <Stack.Navigator
-      initialRouteName={init.tab}    //初始界面
+      initialRouteName={data.init.tab}    //初始界面
     >
       <Stack.Screen
         name="Tab"

@@ -16,9 +16,9 @@ import CurriculumScreen from '../../screen/mainTabScreen/CurriculumScreen';
 import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
 import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
 import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
-import data from '../../component/data';
 import {TabNavParamList} from '../../Root';
-import {StackNavParamList} from '../../Root'
+import {StackNavParamList} from '../../Root';
+import data from '../../component/data';
 import style from '../../style';
 import theme from '../../theme';
 
@@ -55,6 +55,7 @@ export default function TabNav(): React.JSX.Element {
     return (
       <Provider>
         <Tab.Navigator
+          initialRouteName={data.init.home}
           screenOptions={{
             headerStyle: { backgroundColor: customTheme.colors.headerBackground },
             headerTitleStyle: { fontSize: 18, fontWeight: 'bold' },
