@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import {
   View,
   Text,
@@ -8,9 +8,8 @@ import {
   Dimensions, 
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Menu, Provider } from 'react-native-paper';
 import UserHead from '../../component/mainTab/UserHead';
 import CurriculumScreen from '../../screen/mainTabScreen/CurriculumScreen';
 import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
