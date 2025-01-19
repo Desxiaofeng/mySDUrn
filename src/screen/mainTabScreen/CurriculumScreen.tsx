@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@rneui/themed';
 import {
     View,
     StyleSheet,
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     },
   });
 
-export default function ScheduleScreen(): React.JSX.Element {
+export default function CurriculumScreen(): React.JSX.Element {
     return (
         <>
            <ImageBackground 
