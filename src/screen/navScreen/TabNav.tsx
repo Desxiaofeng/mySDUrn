@@ -165,6 +165,7 @@ export default function TabNav(): React.JSX.Element {
               title: '信息',
               headerStyle: style(customTheme,screenHeight).headerOther,
               headerTitle: () => UserHeadCenter( '信息',customTheme,screenHeight ),
+              headerTitleAlign: 'center',
             }}
           />
         </Tab.Navigator>
