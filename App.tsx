@@ -6,7 +6,7 @@
  */
 
 // import React from 'react';
-import Root from './src/Root';
+import Root from './src/Root.tsx';
 
 
 // function App(): React.JSX.Element {
