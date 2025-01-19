@@ -1,0 +1,2 @@
+for developer on a Mac for iOS, run:
+npx pod-install ios
