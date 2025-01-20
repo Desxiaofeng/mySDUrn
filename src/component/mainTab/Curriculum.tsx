@@ -104,9 +104,10 @@ const RightColumnContent = () => (
 
 export default function Curriculum() {
     return (
-        <>
+        <> 
             <View style={styles.column}>
                 <LeftColumnContent />
+                <View></View>
                 <RightColumnContent />
             </View>
         </>
