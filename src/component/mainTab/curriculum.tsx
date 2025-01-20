@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-
 // 定义样式
 export const styles = StyleSheet.create({
     column: {
