@@ -14,7 +14,7 @@ import UserHead from '../../component/mainTab/UserHead';
 import CurriculumScreen from '../../screen/mainTabScreen/CurriculumScreen';
 import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
 import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
-import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
+// import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
 import { TabNavParamList, StackNavParamList} from '../../Root';
 import { styles, customTheme, screenHeight }from '../../style';
 import data from '../../component/data';
@@ -121,7 +121,6 @@ export default function TabNav(): React.JSX.Element {
                   </TouchableWithoutFeedback>
                 </View>
               ),
-              headerLeft: UserHead,
               headerTitleAlign: 'center',
               headerRight: () => (
                 // <Menu
@@ -157,7 +156,7 @@ export default function TabNav(): React.JSX.Element {
             options={{
               title: '信息',
               headerStyle: styles.headerOther,
-              headerTitle: () => UserHeadCenter( '信息',customTheme,screenHeight ),
+              headerTitle: '信息',
               headerTitleAlign: 'center',
             }}
           />

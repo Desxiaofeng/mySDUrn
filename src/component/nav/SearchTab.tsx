@@ -14,7 +14,7 @@ export default function SearchTab() {
     useEffect(() => {
       const timer = setTimeout(() => {
         inputRef.current?.focus();
-      }, 100);
+      }, 10);
       return () => clearTimeout(timer);
     }, []);
   
