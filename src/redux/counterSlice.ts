@@ -25,7 +25,4 @@ export const counterSlice = createSlice({
 })
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
-// 选择器等其他代码可以使用导入的 `RootState` 类型
-export const selectCount = (state: RootState) => state.counter.value
-
 export default counterSlice.reducer
