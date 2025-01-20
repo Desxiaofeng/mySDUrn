@@ -8,13 +8,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     leftColumn: {
-<<<<<<< Updated upstream
         backgroundColor: 'rgba(184, 107, 107, 0.7)', 
-        flex: 1,
-=======
-        backgroundColor: 'rgba(153, 153, 153, 0.92)', 
         flex: 0.8,
->>>>>>> Stashed changes
         flexDirection: 'column',
     },
     rightColumn: {
@@ -23,7 +18,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     rightUp: {
-        flex: 1,
+        flex: 0.8,
         flexDirection: 'row',
     },
     rightDown:{
