@@ -1,15 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, REGISTER, PURGE } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import counterReducer from './redux/counterSlice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
+import userReducer from './slice/userSlice'
 
 const persistConfig = {
   key: 'root', 
   storage: AsyncStorage, 
-  whitelist: ['counter'], 
 };
 
-const persistedReducer = persistReducer(persistConfig, counterReducer);
+const persistedUserReducer = persistReducer(persistConfig, userReducer);
 
 // const store = configureStore({
 //   reducer: {
@@ -19,7 +20,7 @@ const persistedReducer = persistReducer(persistConfig, counterReducer);
 
 const store = configureStore({
   reducer: {
-    counter: persistedReducer, 
+    user: persistedUserReducer, 
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -31,7 +32,12 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
 export { store, persistor };
-export default store;
+
+type RootState = ReturnType<typeof store.getState>;
+type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+export * from './slice/userSlice'
+
+
