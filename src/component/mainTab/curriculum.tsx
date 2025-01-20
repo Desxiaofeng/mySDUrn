@@ -8,17 +8,17 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     leftColumn: {
-        backgroundColor: 'rgba(184, 107, 107, 0.7)', 
-        flex: 1,
+        backgroundColor: 'rgba(255, 255, 255, 0.92)', 
+        flex: 0.8,
         flexDirection: 'column',
     },
     rightColumn: {
-        backgroundColor: 'rgba(164, 139, 139, 0.27)', 
+        backgroundColor: 'rgba(118, 116, 116, 0.07)', 
         flex: 10,
         flexDirection: 'column',
     },
     rightUp: {
-        flex: 1,
+        flex: 0.8,
         flexDirection: 'row',
     },
     rightDown:{
