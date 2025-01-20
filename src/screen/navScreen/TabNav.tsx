@@ -16,8 +16,8 @@ import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
 import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
 import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
 import { TabNavParamList, StackNavParamList} from '../../Root';
-import data from '../../component/data';
 import { styles, customTheme, screenHeight }from '../../style';
+import data from '../../component/data';
 
 const Tab = createBottomTabNavigator<TabNavParamList>();
 
