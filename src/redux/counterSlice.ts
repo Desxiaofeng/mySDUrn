@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../store'
-
 
 // 使用该类型定义初始 state
 const initialState:  {value: number} = {
