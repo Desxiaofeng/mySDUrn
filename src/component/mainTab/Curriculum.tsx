@@ -107,6 +107,7 @@ export default function Curriculum() {
         <>
             <View style={styles.column}>
                 <LeftColumnContent />
+                <Text>123</Text>
                 <RightColumnContent />
             </View>
         </>
