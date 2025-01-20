@@ -3,6 +3,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Platform, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
 
 import SearchScreen from './screen/navScreen/RecentActivityScreen';
 import RecentActivityScreen from './screen/navScreen/RecentActivityScreen';
@@ -11,6 +13,7 @@ import SearchTab from './component/nav/SearchTab';
 import ProfileScreen from './screen/mainTabScreen/ProfileScreen';
 import data from './component/data';
 import theme from './theme';
+import { store, persistor } from './store';
 
 //type类型
 export type StackNavParamList = {
@@ -59,21 +62,25 @@ function StackNav() : React.JSX.Element {
 export default function Root(): React.JSX.Element {
   return (
     <>
-      {(Platform.OS === 'ios') ? (
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <NavigationContainer>
-           <StackNav />
-          </NavigationContainer>
-        </GestureHandlerRootView>
-      ) : (
-        <SafeAreaView style={{ flex: 1 }}>
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+        {(Platform.OS === 'ios') ? (
           <GestureHandlerRootView style={{ flex: 1 }}>
             <NavigationContainer>
-             <StackNav />
+            <StackNav />
             </NavigationContainer>
           </GestureHandlerRootView>
-        </SafeAreaView>
-      )}
+        ) : (
+          <SafeAreaView style={{ flex: 1 }}>
+            <GestureHandlerRootView style={{ flex: 1 }}>
+              <NavigationContainer>
+              <StackNav />
+              </NavigationContainer>
+            </GestureHandlerRootView>
+          </SafeAreaView>
+        )}
+      </PersistGate>
+      </Provider>,
     
     </>
   );
