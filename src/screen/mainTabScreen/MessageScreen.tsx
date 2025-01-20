@@ -15,13 +15,13 @@ export default function MessageScreen(): React.JSX.Element {
         <Button
           onPress={() => dispatch(increment())}
         >
-          Increment
+          <Text>Increment</Text>
         </Button>
         <Text>{count}</Text>
         <Button
           onPress={() => dispatch(decrement())}
         >
-          Decrement
+          <Text>Increment</Text>
         </Button>
 
         </View>

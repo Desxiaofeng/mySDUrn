@@ -80,7 +80,7 @@ export default function Root(): React.JSX.Element {
           </SafeAreaView>
         )}
       </PersistGate>
-      </Provider>,
+      </Provider>
     
     </>
   );
