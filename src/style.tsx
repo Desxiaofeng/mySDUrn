@@ -1,7 +1,11 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { moderateScale, scale } from 'react-native-size-matters';
+import theme from "./theme";
 
-const styles = (customTheme:any,screenHeight:any) => StyleSheet.create({
+export const customTheme = theme.default;
+export const screenHeight = Dimensions.get('window').height;
+export const screenWidth = Dimensions.get('window').width;
+export const styles = StyleSheet.create({
   headerHome: {
     flex: 1,
     justifyContent: 'center', // 垂直居中
@@ -44,5 +48,3 @@ const styles = (customTheme:any,screenHeight:any) => StyleSheet.create({
     backgroundColor: 'transparent', // 背景色透明
   },
 });
-
-export default styles;

@@ -15,16 +15,10 @@ import CurriculumScreen from '../../screen/mainTabScreen/CurriculumScreen';
 import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
 import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
 import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
-import {TabNavParamList} from '../../Root';
-import {StackNavParamList} from '../../Root';
+import { TabNavParamList, StackNavParamList} from '../../Root';
 import data from '../../component/data';
-import style from '../../style';
-import theme from '../../theme';
+import { styles, customTheme, screenHeight }from '../../style';
 
-//主题色 待定函数
-const customTheme = theme.default;
-//一些常数
-const screenHeight = Dimensions.get('window').height;
 const Tab = createBottomTabNavigator<TabNavParamList>();
 
 export default function TabNav(): React.JSX.Element {
@@ -66,7 +60,7 @@ export default function TabNav(): React.JSX.Element {
             component={HomeScreen}
             options={{
               title: '主页',
-              headerStyle: style(customTheme,screenHeight).headerHome,
+              headerStyle: styles.headerHome,
               headerTitleAlign: 'center',
               headerTitleContainerStyle: {
                 left: 0,
@@ -75,7 +69,7 @@ export default function TabNav(): React.JSX.Element {
               headerTitle: () => (
                 <TouchableOpacity
                   style={[
-                    style(customTheme,screenHeight).searchBar,
+                    styles.searchBar,
                     { backgroundColor: customTheme.colors.searchBarBackground },
                   ]}
                   onPress={() => navigation.navigate('Search')}
@@ -91,12 +85,12 @@ export default function TabNav(): React.JSX.Element {
                 //   anchor={
                 //     <TouchableOpacity
                 //       onPress={() => toggleMenu('home', true)}
-                //       style={style(customTheme,screenHeight).cdots}
+                //       style={style.cdots}
                 //     >
                       <Text style={{ color: customTheme.colors.cdotsText }}>···</Text>
                 //     </TouchableOpacity>
                 //   }
-                //   contentStyle={style(customTheme,screenHeight).menuHome}
+                //   contentStyle={style.menuHome}
                 // >
                 //   {menuItems.home.map((item, index) => (
                 //     <Menu.Item
@@ -117,11 +111,11 @@ export default function TabNav(): React.JSX.Element {
             component={CurriculumScreen}
             options={{
               title: '课程',
-              headerStyle: style(customTheme,screenHeight).headerOther,
+              headerStyle: styles.headerOther,
               headerTitle: () => (
                 <View>
                   <TouchableWithoutFeedback onPress={() => setIsPoem(!isPoem)}>
-                    <Text style={[style(customTheme,screenHeight).title, { color: customTheme.colors.titleText }]}>
+                    <Text style={[styles.title, { color: customTheme.colors.titleText }]}>
                       {isPoem ? data.poem.winter : data.user.name}
                     </Text>
                   </TouchableWithoutFeedback>
@@ -136,12 +130,12 @@ export default function TabNav(): React.JSX.Element {
                 //   anchor={
                 //     <TouchableOpacity
                 //       onPress={() => toggleMenu('curriculum', true)}
-                //       style={style(customTheme,screenHeight).cdots}
+                //       style={style.cdots}
                 //     >
                       <Text style={{ color: customTheme.colors.cdotsText }}>···</Text>
                 //     </TouchableOpacity>
                 //   }
-                //   contentStyle={style(customTheme,screenHeight).menuOther}
+                //   contentStyle={style.menuOther}
                 // >
                 //   {menuItems.CurriculumScreen.map((item, index) => (
                 //     <Menu.Item
@@ -162,7 +156,7 @@ export default function TabNav(): React.JSX.Element {
             component={MessageScreen}
             options={{
               title: '信息',
-              headerStyle: style(customTheme,screenHeight).headerOther,
+              headerStyle: styles.headerOther,
               headerTitle: () => UserHeadCenter( '信息',customTheme,screenHeight ),
               headerTitleAlign: 'center',
             }}

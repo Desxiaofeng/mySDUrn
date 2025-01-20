@@ -4,10 +4,9 @@ import {
     View,
     Text,
     TextInput,
-    StyleSheet,
     Keyboard,
 } from 'react-native';
-
+import { styles }from '../../style';
 
 export default function SearchTab() {
     const inputRef = useRef<TextInput>(null);
@@ -28,13 +27,3 @@ export default function SearchTab() {
       />
     );
 };
-
-const styles = StyleSheet.create({
-    searchBar: {
-      backgroundColor: '#e9ecef',
-      padding: 8,
-      width: 200,
-      borderRadius: 8,
-      alignItems: 'center', // 使内容居中对齐
-    },
-  });

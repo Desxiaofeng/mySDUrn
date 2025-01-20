@@ -4,9 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import {StackNavParamList} from '../../Root'
-import style from '../../style';
-
-const screenWidth = Dimensions.get('window').width;
+import { styles, screenWidth }from '../../style';
 
 export default function UserHeadCenter( title:string, customTheme:any, screenHeight:number) {
     const navigation = useNavigation<NativeStackNavigationProp<StackNavParamList>>();
@@ -25,7 +23,7 @@ export default function UserHeadCenter( title:string, customTheme:any, screenHei
             }}
           />
         </TouchableWithoutFeedback>
-        <Text style={[style(customTheme,screenHeight).title, { color: customTheme.colors.titleText }]}>
+        <Text style={[styles.title, { color: customTheme.colors.titleText }]}>
           {title}
         </Text>
       </View>

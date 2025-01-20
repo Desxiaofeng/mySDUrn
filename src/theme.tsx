@@ -1,5 +1,3 @@
-
-
 const theme = {
     default:{
     myOwnProperty: true, // 自定义属性
