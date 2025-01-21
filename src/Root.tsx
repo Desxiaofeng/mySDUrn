@@ -43,6 +43,7 @@ function StackNav() : React.JSX.Element {
       screenOptions={{
         headerStyle: { backgroundColor: theme.colors.background },
         headerTitleStyle: { color: theme.colors.black, fontSize: 18, fontWeight: 'bold' },
+        headerTintColor: theme.colors.black,
       }}
     >
       <Stack.Screen
