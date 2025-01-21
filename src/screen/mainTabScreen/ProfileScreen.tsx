@@ -8,8 +8,8 @@ export function ProfileScreen() {
   const { mode, setMode } = useThemeMode();
   const { theme } = useTheme();
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <Text style={{ color: theme.colors.white, marginBottom: 20 }}>
+    <View style={[styles.container, { backgroundColor: theme.colors.secondary }]}>
+      <Text style={{ color: theme.colors.black, marginBottom: 20 }}>
         Current Mode: {mode}
       </Text>
       <Button title="Dark" onPress={()=>{setMode('dark')}} />

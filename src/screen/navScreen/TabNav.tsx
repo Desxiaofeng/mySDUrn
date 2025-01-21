@@ -70,7 +70,7 @@ export default function TabNav(): React.JSX.Element {
             //   />
             // ),
             tabBarActiveTintColor: theme.colors.black, // 激活状态下的文字和图标颜色
-            tabBarInactiveTintColor: theme.colors.grey4, // 非激活状态下的文字和图标颜色
+            tabBarInactiveTintColor: theme.colors.grey3, // 非激活状态下的文字和图标颜色
           }}
         >
           <Tab.Screen
@@ -100,11 +100,11 @@ export default function TabNav(): React.JSX.Element {
                       borderRadius: 8,
                       alignItems: 'center', // 使内容居中对齐
                     },
-                    { backgroundColor: theme.colors.grey0 },
+                    { backgroundColor: theme.colors.grey5 },
                   ]}
                   onPress={() => navigation.navigate('Search')}
                 >
-                  <Text style={{ color: theme.colors.black }}>图书/咨询/用户</Text>
+                  <Text style={{ color: theme.colors.grey0 }}>图书/咨询/用户</Text>
                 </TouchableOpacity>
               ),
               headerLeft: UserHead,
