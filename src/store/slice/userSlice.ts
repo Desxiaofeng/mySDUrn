@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 // 使用该类型定义初始 state
-const initialState:  {value: number, themeMode: string} = {
+const initialState:  {value: number, themeMode: string,  favorKit: Array<any>} = {
   value: 0,
   themeMode: 'light',
+  favorKit: [0, 1, 2],
 }
 
 export const userSlice = createSlice({
@@ -22,6 +23,9 @@ export const userSlice = createSlice({
     },
     redux_setThemeMode: (state, action) => {
       state.themeMode = action.payload
+    },
+    redux_setFavorKit: (state, action) => {
+      state.favorKit = action.payload
     }
   }
 })
