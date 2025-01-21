@@ -6,13 +6,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 
-import { theme } from './theme';
+import { getTheme } from './theme';
 import SearchScreen from './screen/navScreen/RecentActivityScreen';
 import RecentActivityScreen from './screen/navScreen/RecentActivityScreen';
 import TabNav from './screen/navScreen/TabNav';
 import SearchTab from './component/nav/SearchTab';
 import { ProfileScreen } from './screen/mainTabScreen/ProfileScreen';
-import { store, persistor } from './store';
+import { store, persistor, useAppSelector  } from './store';
 import { useTheme, ThemeProvider } from '@rneui/themed';
 import { data } from './data';
 
@@ -72,30 +72,40 @@ function StackNav() : React.JSX.Element {
   );
 }
 
+
+function InitStore(): React.JSX.Element {
+  const themeMode = useAppSelector(state => state.user.themeMode)
+  const theme = getTheme(themeMode)
+  return (
+    (Platform.OS === 'ios') ? (
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <ThemeProvider theme={theme}>
+           <StackNav />
+          </ThemeProvider>
+        </NavigationContainer>
+      </GestureHandlerRootView>
+    ) : (
+      <SafeAreaView style={{ flex: 1 }}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <NavigationContainer>
+          <ThemeProvider theme={theme}>
+           <StackNav />
+          </ThemeProvider>
+          </NavigationContainer>
+        </GestureHandlerRootView>
+      </SafeAreaView>
+    )
+  );
+}
+
 export default function Root(): React.JSX.Element {
+
   return (
     <>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-          {(Platform.OS === 'ios') ? (
-            <GestureHandlerRootView style={{ flex: 1 }}>
-              <NavigationContainer>
-                <ThemeProvider theme={theme}>
-                 <StackNav />
-                </ThemeProvider>
-              </NavigationContainer>
-            </GestureHandlerRootView>
-          ) : (
-            <SafeAreaView style={{ flex: 1 }}>
-              <GestureHandlerRootView style={{ flex: 1 }}>
-                <NavigationContainer>
-                <ThemeProvider theme={theme}>
-                 <StackNav />
-                </ThemeProvider>
-                </NavigationContainer>
-              </GestureHandlerRootView>
-            </SafeAreaView>
-          )}
+          <InitStore></InitStore>
         </PersistGate>
       </Provider>
     
