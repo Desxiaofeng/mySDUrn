@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Dimensions, StyleSheet } from "react-native";
-import { headComponentData } from '../../head componennt data'; 
+import { headComponentData } from '../../data'; 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 interface HeadComponentItem {
