@@ -1,5 +1,5 @@
-import {TabNavParamList} from '../Root';
-import {StackNavParamList} from '../Root';
+import {TabNavParamList} from './Root';
+import {StackNavParamList} from './Root';
 const data = {
     user:{
         name: '喜羊羊',
