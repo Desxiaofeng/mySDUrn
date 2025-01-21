@@ -14,7 +14,7 @@ import SearchTab from './component/nav/SearchTab';
 import { ProfileScreen } from './screen/mainTabScreen/ProfileScreen';
 import { store, persistor } from './store';
 import { useTheme, ThemeProvider } from '@rneui/themed';
-import data from './data';
+import { data } from './data';
 
 export type StackNavParamList = {
   Root: undefined;

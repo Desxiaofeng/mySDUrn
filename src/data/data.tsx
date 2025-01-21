@@ -1,6 +1,6 @@
-import {TabNavParamList} from './Root';
-import {StackNavParamList} from './Root';
-const data = {
+import {TabNavParamList} from '../Root';
+import {StackNavParamList} from '../Root';
+export const data = {
     user:{
         name: '喜羊羊',
         id: '114514,'
@@ -16,4 +16,3 @@ const data = {
       home: 'Home' as keyof TabNavParamList,
     },
 }
-export default data;

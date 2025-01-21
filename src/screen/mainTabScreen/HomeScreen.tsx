@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-    View,
-    Text,
-} from 'react-native';
+import { View, Text, StyleSheet, } from 'react-native';
+import HomeScreenFirst from '../../component/mainTab/HomeScreenFirst';
 
-export default function HomeScreen(): React.JSX.Element {
+export default function HomeScreen() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Home Screen</Text>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+         <HomeScreenFirst/>
         </View>
     );
 }

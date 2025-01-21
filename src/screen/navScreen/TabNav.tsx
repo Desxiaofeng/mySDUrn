@@ -18,7 +18,7 @@ import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
 // import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
 import { TabNavParamList, StackNavParamList} from '../../Root';
 import { useTheme } from '@rneui/themed';
-import data from '../../data';
+import { data } from '../../data';
 
 const Tab = createBottomTabNavigator<TabNavParamList>();
 
