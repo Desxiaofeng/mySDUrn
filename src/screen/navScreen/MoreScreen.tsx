@@ -3,11 +3,12 @@ import {
     View,
     Text,
 } from 'react-native';
+import HomeScreenFirst from '../../component/mainTab/HomeScreenFirst';
 
 export default function MoreScreen(): React.JSX.Element {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Recent Activity Screen</Text>
+        <View style={{justifyContent: 'center', alignItems: 'center' }}>
+            
         </View>
     );
 }

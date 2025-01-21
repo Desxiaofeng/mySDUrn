@@ -6,6 +6,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { TabNavParamList, StackNavParamList} from '../../Root';
 
+interface HomeScreenFirstProps {
+  filterMoreType?: boolean; 
+}
 
 interface HeadComponentItem {
   name: string;
@@ -18,13 +21,14 @@ interface HeadComponentItem {
 
 const { width } = Dimensions.get('window');
 
-export default function HomeScreenFirst() {
+export default function HomeScreenFirst({ filterMoreType }: HomeScreenFirstProps) {
     const [itemsWithUpTrue, setItemsWithUpTrue] = useState<HeadComponentItem[]>([]);
 
+    
     useEffect(() => {
-      const trueUpItems = headComponentData.filter(item => item.up === true);
+      const trueUpItems = headComponentData.filter(item => item.up === true&& (!filterMoreType || item.type !== 'more'));
       setItemsWithUpTrue(trueUpItems);
-    }, []); 
+    }, [filterMoreType]); 
    const navigation = useNavigation<NativeStackNavigationProp<StackNavParamList>>();
 
   return (
@@ -49,7 +53,7 @@ export default function HomeScreenFirst() {
             width: (width - 10 * 5) / 5,
           }}>
             <Icon name={item.img} size={30} color={typeof item.style === 'string' ? item.style : '#900'} />
-            <Text>{item.name}</Text> // 每个组件下面文字的颜色
+            <Text>{item.name}</Text> 
           </View>
           </TouchableOpacity>
         ))
