@@ -30,5 +30,5 @@ export const userSlice = createSlice({
   }
 })
 
-export const { increment, decrement, incrementByAmount,  redux_setThemeMode} = userSlice.actions
+export const { increment, decrement, incrementByAmount,  redux_setThemeMode, redux_setFavorKit} = userSlice.actions
 export default userSlice.reducer
