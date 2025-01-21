@@ -70,6 +70,7 @@ function StackNav() : React.JSX.Element {
       <Stack.Screen
         name="Recent"
         component={RecentActivityScreen}
+        
       />
       <Stack.Screen
         name="More"

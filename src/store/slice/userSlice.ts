@@ -24,7 +24,7 @@ export const userSlice = createSlice({
     redux_setThemeMode: (state, action) => {
       state.themeMode = action.payload
     },
-    redux_setFavorKit: (state, action) => {
+    redux_setFavorKit: (state, action: PayloadAction<any[]>) => {
       state.favorKit = action.payload
     }
   }
