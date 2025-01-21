@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Dimensions, StyleSheet } from "react-native";
+import { View, Text, Dimensions, TouchableOpacity} from "react-native";
 import { headComponentData } from '../../data'; 
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { TabNavParamList, StackNavParamList} from '../../Root';
+
 
 interface HeadComponentItem {
   name: string;
   img: string;
-  style?: string;
-  path: string;
+  style: string;
+  path: keyof StackNavParamList;
   type: string;
   up: boolean; 
 }
@@ -21,6 +25,7 @@ export default function HomeScreenFirst() {
       const trueUpItems = headComponentData.filter(item => item.up === true);
       setItemsWithUpTrue(trueUpItems);
     }, []); 
+   const navigation = useNavigation<NativeStackNavigationProp<StackNavParamList>>();
 
   return (
     <View style={{
@@ -33,6 +38,10 @@ export default function HomeScreenFirst() {
      {
       itemsWithUpTrue.length > 0 ? (
         itemsWithUpTrue.map((item, index) => (
+          <TouchableOpacity
+              key={index}
+              onPress={() => navigation.navigate(item.path)}
+            >
           <View key={index} style={{
             justifyContent: 'center',
             alignItems: 'center',
@@ -40,8 +49,9 @@ export default function HomeScreenFirst() {
             width: (width - 10 * 5) / 5,
           }}>
             <Icon name={item.img} size={30} color={typeof item.style === 'string' ? item.style : '#900'} />
-            <Text>{item.name}</Text>
+            <Text>{item.name}</Text> // 每个组件下面文字的颜色
           </View>
+          </TouchableOpacity>
         ))
       ) : (
         <Text>没有 up 为 true 的项目</Text>

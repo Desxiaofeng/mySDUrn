@@ -15,6 +15,7 @@ import { ProfileScreen } from './screen/mainTabScreen/ProfileScreen';
 import { store, persistor, useAppSelector  } from './store';
 import { useTheme, ThemeProvider } from '@rneui/themed';
 import { data } from './data';
+import MoreScreen from './screen/navScreen/MoreScreen';
 
 export type StackNavParamList = {
   Root: undefined;
@@ -22,6 +23,7 @@ export type StackNavParamList = {
   Search: undefined;
   Profile: undefined;
   Recent: undefined;
+  More: undefined;
 };
 export type TabNavParamList = {
   Home: undefined;
@@ -41,6 +43,7 @@ function StackNav() : React.JSX.Element {
       screenOptions={{
         headerStyle: { backgroundColor: theme.colors.background },
         headerTitleStyle: { color: theme.colors.black, fontSize: 18, fontWeight: 'bold' },
+        headerTintColor: theme.colors.black,
       }}
     >
       <Stack.Screen
@@ -67,6 +70,10 @@ function StackNav() : React.JSX.Element {
       <Stack.Screen
         name="Recent"
         component={RecentActivityScreen}
+      />
+      <Stack.Screen
+        name="More"
+        component={MoreScreen}
       />
     </Stack.Navigator>
   );

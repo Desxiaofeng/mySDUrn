@@ -1,13 +1,10 @@
 import { createTheme } from '@rneui/themed';
-import { StyleSheet, Platform, Dimensions } from 'react-native';
 
-export const screenHeight = Dimensions.get('window').height;
-export const screenWidth = Dimensions.get('window').width;
 export function getTheme(themeMode: any) {
   return createTheme({
     lightColors:{
       primary: "#2089dc",
-      secondary: "rgb(239	239	239)",
+      secondary: "rgb(239    239    239)",
       background: "#ffffff",
       white: "#ffffff",
       black: "#242424",
