@@ -236,12 +236,12 @@ interface HeadComponentItem {
     },
   
     // 最后一项保持不变
-    {
-      name: '更多内容', 
-      img: 'indent-more', 
-      style: '#ec411c',
-      path: 'More', 
-      type: 'more',
-      up: true
-    },
+    // {
+    //   name: '更多内容', 
+    //   img: 'indent-more', 
+    //   style: '#ec411c',
+    //   path: 'More', 
+    //   type: 'more',
+    //   up: true
+    // },
   ];
