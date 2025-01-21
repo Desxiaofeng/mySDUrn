@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Alert,
-  Dimensions, 
+  Dimensions,
+  Platform,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -16,24 +17,27 @@ import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
 import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
 // import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
 import { TabNavParamList, StackNavParamList} from '../../Root';
-import { styles, customTheme, screenHeight }from '../../style';
-import data from '../../component/data';
+import { useTheme } from '@rneui/themed';
+import data from '../../data';
 
 const Tab = createBottomTabNavigator<TabNavParamList>();
 
 export default function TabNav(): React.JSX.Element {
+    const screenHeight = Dimensions.get('window').height;
+    const screenWidth = Dimensions.get('window').width;
+    const { theme } = useTheme();
     const navigation = useNavigation<NativeStackNavigationProp<StackNavParamList>>();
     const [isPoem, setIsPoem] = useState(true);
     const [menuVisible, setMenuVisible] = useState({
       home: false,
       curriculum: false
     });
-    const toggleMenu = (menuKey: keyof typeof menuVisible, visible: boolean) => {
-      setMenuVisible((prev) => ({
-        ...prev,
-        [menuKey]: visible,
-      }));
-    };
+    // const toggleMenu = (menuKey: keyof typeof menuVisible, visible: boolean) => {
+    //   setMenuVisible((prev) => ({
+    //     ...prev,
+    //     [menuKey]: visible,
+    //   }));
+    // };
     const menuItems = {
       home: [
         { label: '近期活动', onPress: () => navigation.navigate('Recent') },
@@ -50,9 +54,23 @@ export default function TabNav(): React.JSX.Element {
         <Tab.Navigator
           initialRouteName={data.init.home}
           screenOptions={{
-            headerStyle: { backgroundColor: customTheme.colors.headerBackground },
-            headerTitleStyle: { fontSize: 18, fontWeight: 'bold' },
-            tabBarStyle: { backgroundColor: customTheme.colors.tabBarBackground },
+            headerStyle: { backgroundColor: theme.colors.background },
+            headerTitleStyle: { color: theme.colors.black, fontSize: 18, fontWeight: 'bold' },
+            tabBarStyle: { backgroundColor: theme.colors.background },
+            tabBarLabelStyle: { // 设置 tabBar 中文字的样式
+              fontSize: 15,
+              color: theme.colors.black,
+              fontWeight: '500',
+            },
+            // tabBarIcon: ({ color, size }) => ( // 自定义图标样式
+            //   <Icon
+            //     name="home" // 根据需要替换图标的名称
+            //     size={size || 24}
+            //     color={color || theme.colors.black}
+            //   />
+            // ),
+            tabBarActiveTintColor: theme.colors.black, // 激活状态下的文字和图标颜色
+            tabBarInactiveTintColor: theme.colors.grey4, // 非激活状态下的文字和图标颜色
           }}
         >
           <Tab.Screen
@@ -60,7 +78,13 @@ export default function TabNav(): React.JSX.Element {
             component={HomeScreen}
             options={{
               title: '主页',
-              headerStyle: styles.headerHome,
+              headerStyle: {
+                flex: 1,
+                justifyContent: 'center', // 垂直居中
+                alignItems: 'center', // 水平居中
+                backgroundColor: theme.colors.background,
+                height: (Platform.OS === 'ios') ? (screenHeight * 0.12) : (screenHeight * 0.06),
+              },
               headerTitleAlign: 'center',
               headerTitleContainerStyle: {
                 left: 0,
@@ -69,12 +93,18 @@ export default function TabNav(): React.JSX.Element {
               headerTitle: () => (
                 <TouchableOpacity
                   style={[
-                    styles.searchBar,
-                    { backgroundColor: customTheme.colors.searchBarBackground },
+                    {
+                      backgroundColor: theme.colors.grey0,
+                      padding: (Platform.OS === 'ios') ? (screenHeight * 0.012) : (screenHeight * 0.008),
+                      width: (Platform.OS === 'ios') ? (screenWidth * 0.5) : (screenWidth * 0.5),
+                      borderRadius: 8,
+                      alignItems: 'center', // 使内容居中对齐
+                    },
+                    { backgroundColor: theme.colors.grey0 },
                   ]}
                   onPress={() => navigation.navigate('Search')}
                 >
-                  <Text style={{ color: customTheme.colors.searchBarText }}>图书/咨询/用户</Text>
+                  <Text style={{ color: theme.colors.black }}>图书/咨询/用户</Text>
                 </TouchableOpacity>
               ),
               headerLeft: UserHead,
@@ -87,7 +117,7 @@ export default function TabNav(): React.JSX.Element {
                 //       onPress={() => toggleMenu('home', true)}
                 //       style={style.cdots}
                 //     >
-                      <Text style={{ color: customTheme.colors.cdotsText }}>···</Text>
+                      <Text style={{ color: theme.colors.black }}>···</Text>
                 //     </TouchableOpacity>
                 //   }
                 //   contentStyle={style.menuHome}
@@ -111,11 +141,22 @@ export default function TabNav(): React.JSX.Element {
             component={CurriculumScreen}
             options={{
               title: '课程',
-              headerStyle: styles.headerOther,
+              headerStyle: {
+                flex: 1,
+                justifyContent: 'center', // 垂直居中
+                alignItems: 'center', // 水平居中
+                backgroundColor: theme.colors.background,
+                height: (Platform.OS === 'ios') ? (screenHeight * 0.12) : (screenHeight * 0.06),
+              },
               headerTitle: () => (
                 <View>
                   <TouchableWithoutFeedback onPress={() => setIsPoem(!isPoem)}>
-                    <Text style={[styles.title, { color: customTheme.colors.titleText }]}>
+                    <Text style={[{
+                        fontSize: 18, // 动态缩放字体大小
+                        fontWeight: 'bold', // 加粗字体
+                        color: theme.colors.black, // 黑色文字
+                      }, 
+                      { color: theme.colors.black }]}>
                       {isPoem ? data.poem.winter : data.user.name}
                     </Text>
                   </TouchableWithoutFeedback>
@@ -131,7 +172,7 @@ export default function TabNav(): React.JSX.Element {
                 //       onPress={() => toggleMenu('curriculum', true)}
                 //       style={style.cdots}
                 //     >
-                      <Text style={{ color: customTheme.colors.cdotsText }}>···</Text>
+                      <Text style={{ color: theme.colors.black }}>···</Text>
                 //     </TouchableOpacity>
                 //   }
                 //   contentStyle={style.menuOther}
@@ -155,7 +196,13 @@ export default function TabNav(): React.JSX.Element {
             component={MessageScreen}
             options={{
               title: '信息',
-              headerStyle: styles.headerOther,
+              headerStyle: {
+                flex: 1,
+                justifyContent: 'center', // 垂直居中
+                alignItems: 'center', // 水平居中
+                backgroundColor: theme.colors.background,
+                height: (Platform.OS === 'ios') ? (screenHeight * 0.12) : (screenHeight * 0.06),
+              },
               headerTitle: '信息',
               headerTitleAlign: 'center',
             }}
