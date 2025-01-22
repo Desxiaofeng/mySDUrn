@@ -5,12 +5,14 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { TabNavParamList, StackNavParamList} from '../../Root';
+import { useAppSelector, useAppDispatch, redux_setFavorKit } from '../../store'
 
 interface HomeScreenFirstProps {
   filterMoreType?: boolean; 
 }
 
 interface HeadComponentItem {
+  index:number,
   name: string;
   img: string;
   style: string;
@@ -22,14 +24,11 @@ interface HeadComponentItem {
 const { width } = Dimensions.get('window');
 
 export default function HomeScreenFirst({ filterMoreType }: HomeScreenFirstProps) {
-    const [itemsWithUpTrue, setItemsWithUpTrue] = useState<HeadComponentItem[]>([]);
-
-    
-    useEffect(() => {
-      const trueUpItems = headComponentData.filter(item => item.up === true&& (!filterMoreType || item.type !== 'more'));
-      setItemsWithUpTrue(trueUpItems);
-    }, [filterMoreType]); 
+   const favorKit = useAppSelector(state => state.user.favorKit)
    const navigation = useNavigation<NativeStackNavigationProp<StackNavParamList>>();
+   const itemsWithUpTrue: HeadComponentItem[] = favorKit.map(index => {
+        return headComponentData[index]
+    });
 
   return (
     <View style={{
@@ -40,7 +39,6 @@ export default function HomeScreenFirst({ filterMoreType }: HomeScreenFirstProps
       alignItems: 'center'
     }}>
      {
-      itemsWithUpTrue.length > 0 ? (
         itemsWithUpTrue.map((item, index) => (
           <TouchableOpacity
               key={index}
@@ -57,10 +55,20 @@ export default function HomeScreenFirst({ filterMoreType }: HomeScreenFirstProps
           </View>
           </TouchableOpacity>
         ))
-      ) : (
-        <Text>没有 up 为 true 的项目</Text>
-      )
-     }
+      }
+      <TouchableOpacity
+              onPress={() => navigation.navigate('More')}
+            >
+          <View style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: 5 ,
+            width: (width - 10 * 5) / 5,
+          }}>
+            <Icon name={'happy'} size={30} color={'#900'} />
+            <Text>{'更多功能'}</Text> 
+          </View>
+          </TouchableOpacity>
     </View>
   );
 }

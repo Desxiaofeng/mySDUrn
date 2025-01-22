@@ -19,7 +19,7 @@ interface HeadComponentItem {
       style: '#ec411c',
       path: 'More', 
       type: 'study',
-      up: true
+      up: false
     },
     {
       index: 1,
