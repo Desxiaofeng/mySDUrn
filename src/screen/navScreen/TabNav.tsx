@@ -107,7 +107,33 @@ export default function TabNav(): React.JSX.Element {
                   <Text style={{ color: theme.colors.grey0 }}>图书/咨询/用户</Text>
                 </TouchableOpacity>
               ),
-              headerLeft: UserHead
+              headerLeft: UserHead,
+              headerRight: () => (
+                // <Menu
+                //   visible={menuVisible.curriculum}
+                //   onDismiss={() => toggleMenu('curriculum', false)}
+                //   anchor={
+                //     <TouchableOpacity
+                //       onPress={() => toggleMenu('curriculum', true)}
+                //       style={style.cdots}
+                //     >
+                      <Text style={{ color: theme.colors.black }}>··· </Text>
+                //     </TouchableOpacity>
+                //   }
+                //   contentStyle={style.menuOther}
+                // >
+                //   {menuItems.CurriculumScreen.map((item, index) => (
+                //     <Menu.Item
+                //       key={index}
+                //       onPress={() => {
+                //         toggleMenu('curriculum', false);
+                //         item.onPress();
+                //       }}
+                //       title={item.label}
+                //     />
+                //   ))}
+                // </Menu>
+              ),
             }}
           />
           <Tab.Screen
@@ -146,7 +172,7 @@ export default function TabNav(): React.JSX.Element {
                 //       onPress={() => toggleMenu('curriculum', true)}
                 //       style={style.cdots}
                 //     >
-                      <Text style={{ color: theme.colors.black }}>···</Text>
+                      <Text style={{ color: theme.colors.black }}>··· </Text>
                 //     </TouchableOpacity>
                 //   }
                 //   contentStyle={style.menuOther}
