@@ -6,10 +6,6 @@ import { useTheme } from '@rneui/themed';
 export default function Curriculum() {
     const { theme } = useTheme();
     const styles = StyleSheet.create({
-        column: {
-            flex: 1,
-            flexDirection: 'row',
-        },
         leftColumn: {
             backgroundColor: theme.colors.grey3, 
             flex: 0.8,
@@ -106,11 +102,13 @@ export default function Curriculum() {
     );
     
     return (
-        <> 
-            <View style={styles.column}>
-                <LeftColumnContent />
-                <RightColumnContent />
-            </View>
-        </>
+        <View style={{
+            flex: 1,
+            flexDirection: 'row',
+            backgroundColor:theme.colors.secondary,
+        }}>
+            <LeftColumnContent />
+            <RightColumnContent />
+        </View>
     );
 }
