@@ -107,7 +107,7 @@ export default function MoreScreen(): React.JSX.Element {
                         <Icon
                             name={item.img as any}
                             iconStyle='solid'
-                            size={30}
+                            size={28}
                             color={theme.colors.error}
                             style={{paddingBottom:5}}
                         />
@@ -162,7 +162,7 @@ export default function MoreScreen(): React.JSX.Element {
                                 <Icon 
                                     name={item.img as any}
                                     iconStyle='solid'
-                                    size={30}
+                                    size={28}
                                     color={theme.colors.error} 
                                     style={{paddingBottom:5}}
                                 />
@@ -215,7 +215,7 @@ export default function MoreScreen(): React.JSX.Element {
                             <Icon 
                                 name={item.img as any}
                                 iconStyle='solid'
-                                size={30}
+                                size={28}
                                 color={theme.colors.grey0}
                                 style={{paddingBottom:5}}
                             />
@@ -242,7 +242,7 @@ export default function MoreScreen(): React.JSX.Element {
                             <Icon
                                 name={item.img as any}
                                 iconStyle='solid'
-                                size={30}
+                                size={28}
                                 color={theme.colors.grey0}
                                 style={{paddingBottom:5}}
                             />

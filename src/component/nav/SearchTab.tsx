@@ -29,7 +29,7 @@ export default function SearchTab() {
       placeholder="请输入关键词"
       placeholderTextColor={theme.colors.grey1} 
       style={{
-        backgroundColor: theme.colors.grey5,
+        backgroundColor: theme.colors.secondary,
         color: theme.colors.black,
         fontSize: 14,
         padding: (Platform.OS === 'ios') ? (screenHeight * 0.012) : (screenHeight * 0.008),

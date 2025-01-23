@@ -1,24 +1,21 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Image, Dimensions } from 'react-native';
+import { Dimensions, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
+import { useTheme } from '@rneui/themed';
 import {StackNavParamList} from '../../Root'
+import Icon from '@react-native-vector-icons/fontawesome6';
 
 const screenWidth = Dimensions.get('window').width;
 
 export default function UserHead() {
+    const { theme } = useTheme();
     const navigation = useNavigation<NativeStackNavigationProp<StackNavParamList>>();
     return(
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('Profile')} style={{ marginLeft: 10 }}>
-        {<Image
-          source={require('../../assets/userinit.png')} // 使用 require 引入本地图片
-          style={{
-            width: screenWidth * 0.08, // 以屏幕宽度的 8% 为头像宽度
-            height: screenWidth * 0.08, // 以屏幕宽度的 8% 为头像高度
-            borderRadius: (screenWidth * 0.08) / 2, // 确保头像为圆形
-          }}
-        />}
-      </TouchableWithoutFeedback>
+      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+        <View style={{ marginLeft:10, paddingTop:1 }}>
+          <Icon name='user-graduate' iconStyle='solid' size={25} color={theme.colors.grey1}/>
+        </View>
+      </TouchableOpacity>
     )
 };

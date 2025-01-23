@@ -109,11 +109,11 @@ export default function TabNav(): React.JSX.Element {
                       borderRadius: 8,
                       alignItems: 'center', // 使内容居中对齐
                     },
-                    { backgroundColor: theme.colors.grey5 },
+                    { backgroundColor: theme.colors.secondary },
                   ]}
                   onPress={() => navigation.navigate('Search')}
                 >
-                  <Text style={{ color: theme.colors.grey0 }}>图书/咨询/用户</Text>
+                  <Text style={{ color: theme.colors.grey2 }}>图书/咨询/用户</Text>
                 </TouchableOpacity>
               ),
               headerLeft: UserHead,
@@ -126,7 +126,9 @@ export default function TabNav(): React.JSX.Element {
                 //       onPress={() => toggleMenu('curriculum', true)}
                 //       style={style.cdots}
                 //     >
-                      <Text style={{ color: theme.colors.black }}>··· </Text>
+                    <View style={{marginRight:10}}>
+                      <Icon name='ellipsis' iconStyle='solid' size={20}  color={theme.colors.grey1}/>
+                    </View>
                 //     </TouchableOpacity>
                 //   }
                 //   contentStyle={style.menuOther}
@@ -181,7 +183,9 @@ export default function TabNav(): React.JSX.Element {
                 //       onPress={() => toggleMenu('curriculum', true)}
                 //       style={style.cdots}
                 //     >
-                      <Text style={{ color: theme.colors.black }}>··· </Text>
+                    <View style={{marginRight:10}}>
+                      <Icon name='ellipsis' iconStyle='solid' size={20}  color={theme.colors.grey1}/>
+                    </View>
                 //     </TouchableOpacity>
                 //   }
                 //   contentStyle={style.menuOther}

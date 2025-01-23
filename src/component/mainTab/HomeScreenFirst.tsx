@@ -49,11 +49,11 @@ export default function HomeScreenFirst() {
               alignItems: 'center',
               margin: 5,
               paddingTop: 4,
-              paddingBottom: 2,
+              paddingBottom: 5,
               width: (width - 15 * 5) / 5,
           }}>
-            <Icon name={item.img as 'user'} size={30} color={theme.colors.grey0} iconStyle='solid' />
-            <Text style={{color:theme.colors.grey0}}>{item.name}</Text> 
+            <Icon name={item.img as 'user'} size={28} color={theme.colors.grey0} iconStyle='solid' style={{paddingBottom:5}}/>
+            <Text style={{color:theme.colors.grey1}}>{item.name}</Text> 
           </View>
           </TouchableOpacity>
         ))
@@ -66,10 +66,10 @@ export default function HomeScreenFirst() {
               alignItems: 'center',
               margin: 5,
               paddingTop: 4,
-              paddingBottom: 2,
+              paddingBottom: 5,
               width: (width - 15 * 5) / 5,
           }}>
-            <Icon name="plus" size={30} color={theme.colors.grey2} iconStyle="solid"/>
+            <Icon name="plus" size={28} color={theme.colors.grey1} iconStyle="solid" style={{paddingBottom:5}}/>
             <Text style={{color:theme.colors.grey2}}>{'更多功能'}</Text> 
           </View>
           </TouchableOpacity>
