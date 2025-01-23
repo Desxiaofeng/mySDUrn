@@ -33,7 +33,7 @@ export default function HomeScreenFirst() {
       flexDirection: 'row',
       flexWrap: 'wrap', 
       width: width,
-      justifyContent: itemsWithUpTrue.length > 5?('flex-start'):('space-around'),
+      justifyContent: itemsWithUpTrue.length >= 5?('flex-start'):('space-around'),
       alignItems: 'center',
       paddingTop: 8,
     }}>
