@@ -67,7 +67,7 @@ export default function TabNav(): React.JSX.Element {
               let iconName;
               switch (route.name) {
                 case "Home": iconName = focused ? 'house-chimney' : 'house';break;
-                case "Curriculum": iconName = focused ? 'calendar-check' : 'calendar';break;
+                case "Curriculum": iconName = focused ? 'calendar-check' : 'calendar-days';break;
                 case "Message": iconName = focused ? 'envelope-open' : 'envelope';break;
               }
               return(
