@@ -33,7 +33,6 @@ export default function MoreScreen(): React.JSX.Element {
     const navigation = useNavigation();
     const [isChose, setIsChose] = React.useState(false);
     
-
     React.useEffect(() => {
         navigation.setOptions({
             headerRight: () => (
@@ -42,7 +41,7 @@ export default function MoreScreen(): React.JSX.Element {
                     style={{backgroundColor:theme.colors.background}} 
                     onPress={() => setIsChose((isChose)=>(!isChose))}
                 >
-                    <Icon name="gear" size={15} color={theme.colors.black} iconStyle='solid'/>
+                    <Icon name="gear" size={16} color={isChose?theme.colors.error:theme.colors.black} iconStyle='solid'/>
                 </TouchableOpacity>
             ),
         });
@@ -81,7 +80,7 @@ export default function MoreScreen(): React.JSX.Element {
         }
     })
 
-    const TypeComponent = ({ items, type }: { items: HeadComponentItem[]; type: string }) => (
+    const TypeComponent = ({ items }: { items: HeadComponentItem[]; type: string }) => (
         <View style={styles.columnstyle}>
             {items.map((item, index) => (
                 <TouchableOpacity
@@ -171,7 +170,9 @@ export default function MoreScreen(): React.JSX.Element {
                         </TouchableOpacity>
                     ))
                 ) : (
-                    <Text style={{color:theme.colors.black}}>没有选择的项目</Text>
+                    <View style={{marginVertical:6}}>
+                     <Text style={{color:theme.colors.black}}>没有选择的项目</Text>
+                    </View>
                 )
                     }
                 </View>
@@ -223,7 +224,9 @@ export default function MoreScreen(): React.JSX.Element {
                         </View>
                     ))
                 ) : (
-                    <Text style={{color:theme.colors.black}}>没有选择的项目</Text>
+                    <View style={{marginVertical:6}}>
+                        <Text style={{color:theme.colors.black}}>没有选择的项目</Text>
+                    </View>
                 )}
             </View>
             {Object.keys(groupedItems).map(type => (
