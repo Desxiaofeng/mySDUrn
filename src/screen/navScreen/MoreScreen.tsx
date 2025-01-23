@@ -11,7 +11,7 @@ import { useAppSelector, useAppDispatch, redux_setFavorKit } from '../../store'
 import { useTheme } from '@rneui/themed';
 import { StackNavParamList } from '../../Root';
 import { headComponentData } from '../../data';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Icon } from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
 import { color } from '@rneui/base';
 

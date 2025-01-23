@@ -15,7 +15,7 @@ interface HeadComponentItem {
     {
       index: 0, 
       name: '成绩查询', 
-      img: 'happy', 
+      img: 'rowing', 
       style: '#ec411c',
       path: 'More', 
       type: 'study',
@@ -24,7 +24,7 @@ interface HeadComponentItem {
     {
       index: 1,
       name: '考试安排', 
-      img: 'happy', 
+      img: 'access-alarm', 
       style: '#ec411c',
       path: 'More', 
       type: 'study',

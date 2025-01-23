@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, Dimensions, TouchableOpacity} from "react-native";
 import { headComponentData } from '../../data'; 
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTheme } from '@rneui/themed';
 import { TabNavParamList, StackNavParamList} from '../../Root';
@@ -63,7 +63,7 @@ export default function HomeScreenFirst() {
             margin: 5 ,
             width: (width - 10 * 5) / 5,
           }}>
-            <Icon name={'happy'} size={30} color={theme.colors.grey2} />
+            <Icon name="arrow-up" size={30} color={theme.colors.grey2} iconStyle="solid"/>
             <Text style={{color:theme.colors.grey2}}>{'更多功能'}</Text> 
           </View>
           </TouchableOpacity>
