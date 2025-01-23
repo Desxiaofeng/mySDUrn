@@ -6,13 +6,17 @@ import { useTheme } from '@rneui/themed';
 export default function Curriculum() {
     const { theme } = useTheme();
     const styles = StyleSheet.create({
+        column: {
+            flex: 1,
+            flexDirection: 'row',
+        },
         leftColumn: {
-            backgroundColor: theme.colors.grey3, 
+            backgroundColor: theme.colors.white, 
             flex: 0.8,
             flexDirection: 'column',
         },
         rightColumn: {
-            backgroundColor: theme.colors.grey5, 
+            backgroundColor: theme.colors.secondary, 
             flex: 10,
             flexDirection: 'column',
         },
@@ -28,18 +32,16 @@ export default function Curriculum() {
             flex: 1, // 每个部分的基础高度
             justifyContent: 'center', // 垂直居中
             alignItems: 'center', // 水平居中
-            borderWidth: 1, // 添加边框宽度
-            borderColor: theme.colors.grey0, // 设置边框颜色
-            borderRadius: 0, // 可选：设置圆角边框
+            borderWidth: 0.25, // 添加边框宽度
+            borderColor: theme.colors.grey4, // 设置边框颜色
             // padding: 1, // 添加内边距以确保文本与边框之间有足够的间距
         },
         leftDownSection: {
             flex: 3, // 每个部分的基础高度
             justifyContent: 'center', // 垂直居中
             alignItems: 'center', // 水平居中
-            borderWidth: 1, // 添加边框宽度
-            borderColor: theme.colors.grey0, // 设置边框颜色
-            borderRadius: 0, // 可选：设置圆角边框
+            borderWidth: 0.24, // 添加边框宽度
+            borderColor: theme.colors.grey4, // 设置边框颜色
             // padding: 1, // 添加内边距以确保文本与边框之间有足够的间距
         },
         sectionText: {
@@ -55,8 +57,8 @@ export default function Curriculum() {
             flex: 1, // 横栏等宽
             justifyContent: 'center',
             alignItems: 'center',
-            borderWidth: 1,
-            borderColor: theme.colors.grey0,
+            borderWidth: 0.25,
+            borderColor: theme.colors.grey4,
         },
     });
     // 左侧内容组件
@@ -102,11 +104,7 @@ export default function Curriculum() {
     );
     
     return (
-        <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            backgroundColor:theme.colors.secondary,
-        }}>
+        <View style={styles.column}>
             <LeftColumnContent />
             <RightColumnContent />
         </View>
