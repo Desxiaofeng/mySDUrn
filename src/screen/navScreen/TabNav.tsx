@@ -55,11 +55,17 @@ export default function TabNav(): React.JSX.Element {
         <Tab.Navigator
           initialRouteName={data.init.home}
           screenOptions={({ route }) => ({
-            headerStyle: { backgroundColor: theme.colors.background },
+            headerStyle: { backgroundColor: theme.colors.background, borderBottomColor: theme.colors.secondary },
             headerTitleStyle: { color: theme.colors.black, fontSize: 18, fontWeight: 'bold' },
-            tabBarStyle: { backgroundColor: theme.colors.background, borderColor: theme.colors.background },
+            tabBarStyle: { 
+              backgroundColor: theme.colors.background, 
+              borderColor: theme.colors.background, 
+              height:screenHeight*0.08, 
+              borderTopWidth:(Platform.OS === 'ios') ? (screenHeight * 0.003) : (screenHeight * 0.006),
+              alignItems:'center',
+            },
             tabBarLabelStyle: {
-              fontSize: 15,
+              fontSize: 14,
               color: theme.colors.black,
               fontWeight: '500',
             },

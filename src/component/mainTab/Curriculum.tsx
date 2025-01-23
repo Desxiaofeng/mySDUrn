@@ -32,7 +32,10 @@ export default function Curriculum() {
             flex: 1, // 每个部分的基础高度
             justifyContent: 'center', // 垂直居中
             alignItems: 'center', // 水平居中
-            borderWidth: 0.25, // 添加边框宽度
+            borderTopWidth: 0,
+            borderLeftWidth: 0.34,
+            borderRightWidth: 0,
+            borderBottomWidth: 0.34,
             borderColor: theme.colors.grey4, // 设置边框颜色
             // padding: 1, // 添加内边距以确保文本与边框之间有足够的间距
         },
@@ -40,7 +43,10 @@ export default function Curriculum() {
             flex: 3, // 每个部分的基础高度
             justifyContent: 'center', // 垂直居中
             alignItems: 'center', // 水平居中
-            borderWidth: 0.24, // 添加边框宽度
+            borderTopWidth: 0,
+            borderLeftWidth: 0.34,
+            borderRightWidth: 0,
+            borderBottomWidth: 0.34,
             borderColor: theme.colors.grey4, // 设置边框颜色
             // padding: 1, // 添加内边距以确保文本与边框之间有足够的间距
         },
@@ -57,7 +63,10 @@ export default function Curriculum() {
             flex: 1, // 横栏等宽
             justifyContent: 'center',
             alignItems: 'center',
-            borderWidth: 0.25,
+            borderTopWidth: 0,
+            borderLeftWidth: 0.34,
+            borderRightWidth: 0,
+            borderBottomWidth: 0.34,
             borderColor: theme.colors.grey4,
         },
     });
