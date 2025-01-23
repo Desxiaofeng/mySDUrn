@@ -17,7 +17,8 @@ import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
 import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
 // import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
 import { TabNavParamList, StackNavParamList} from '../../Root';
-import { useTheme, ListItem, Icon } from '@rneui/themed';
+import { useTheme, ListItem } from '@rneui/themed';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { data } from '../../data';
 
 const Tab = createBottomTabNavigator<TabNavParamList>();
@@ -53,25 +54,33 @@ export default function TabNav(): React.JSX.Element {
       // <Provider>
         <Tab.Navigator
           initialRouteName={data.init.home}
-          screenOptions={{
+          screenOptions={({ route }) => ({
             headerStyle: { backgroundColor: theme.colors.background },
             headerTitleStyle: { color: theme.colors.black, fontSize: 18, fontWeight: 'bold' },
             tabBarStyle: { backgroundColor: theme.colors.background },
-            tabBarLabelStyle: { // 设置 tabBar 中文字的样式
+            tabBarLabelStyle: {
               fontSize: 15,
               color: theme.colors.black,
               fontWeight: '500',
             },
-            // tabBarIcon: ({ color, size }) => ( // 自定义图标样式
-            //   <Icon
-            //     name="home" // 根据需要替换图标的名称
-            //     size={size || 24}
-            //     color={color || theme.colors.black}
-            //   />
-            // ),
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+              switch (route.name) {
+                case "Home": iconName = focused ? 'house-chimney' : 'house';break;
+                case "Curriculum": iconName = focused ? 'calendar-check' : 'calendar';break;
+                case "Message": iconName = focused ? 'envelope-open' : 'envelope';break;
+              }
+              return(
+                <Icon
+                  name={iconName as any}
+                  iconStyle={'solid'}
+                  size={size || 24}
+                  color={color || theme.colors.black}
+                />
+            )},
             tabBarActiveTintColor: theme.colors.black, // 激活状态下的文字和图标颜色
-            tabBarInactiveTintColor: theme.colors.grey3, // 非激活状态下的文字和图标颜色
-          }}
+            tabBarInactiveTintColor: theme.colors.grey2, // 非激活状态下的文字和图标颜色
+          })}
         >
           <Tab.Screen
             name="Home"
