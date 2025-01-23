@@ -100,6 +100,7 @@ export default function MoreScreen(): React.JSX.Element {
                             justifyContent: 'center',
                             alignItems: 'center',
                             margin: 5,
+                            paddingTop: 4,
                             paddingBottom: 2,
                             width: (width - 15 * 5) / 5,
                         }}>
@@ -107,7 +108,7 @@ export default function MoreScreen(): React.JSX.Element {
                             name={item.img as any}
                             iconStyle='solid'
                             size={30}
-                            color={typeof item.style === 'string' ? item.style : '#900'}
+                            color={theme.colors.error}
                             style={{paddingBottom:5}}
                         />
                         <Text style={{color:theme.colors.grey1}}>{item.name}</Text>
@@ -115,7 +116,6 @@ export default function MoreScreen(): React.JSX.Element {
                 </TouchableOpacity>
             ))}
         </View>
-
     );
 
     return (
@@ -163,7 +163,7 @@ export default function MoreScreen(): React.JSX.Element {
                                     name={item.img as any}
                                     iconStyle='solid'
                                     size={30}
-                                    color={typeof item.style === 'string' ? item.style : '#900'} 
+                                    color={theme.colors.error} 
                                     style={{paddingBottom:5}}
                                 />
                                 <Text style={{color:theme.colors.black}}>{item.name}</Text>
@@ -235,6 +235,7 @@ export default function MoreScreen(): React.JSX.Element {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 margin: 5,
+                                paddingTop: 4,
                                 paddingBottom: 2,
                                 width: (width - 15 * 5) / 5,
                             }}>
