@@ -12,11 +12,11 @@ export function ProfileScreen() {
   const { theme } = useTheme();
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.secondary }]}>
-      <Text style={{ color: theme.colors.black, marginBottom: 20 }}>
+      <Button color={theme.colors.primary} title="Dark" onPress={()=>{dispatch(redux_setThemeMode('dark'))}} />
+      <Text style={{ color: theme.colors.black, margin:10}}>
         Current Mode: {mode}
       </Text>
-      <Button title="Dark" onPress={()=>{dispatch(redux_setThemeMode('dark'))}} />
-      <Button title="Light" onPress={()=>{dispatch(redux_setThemeMode('light'))}} />
+      <Button color={theme.colors.primary} title="Light" onPress={()=>{dispatch(redux_setThemeMode('light'))}} />
     </View>
   );
 }

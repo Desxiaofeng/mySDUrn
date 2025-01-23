@@ -126,9 +126,11 @@ export default function TabNav(): React.JSX.Element {
                 //       onPress={() => toggleMenu('curriculum', true)}
                 //       style={style.cdots}
                 //     >
-                    <View style={{marginRight:10}}>
-                      <Icon name='ellipsis' iconStyle='solid' size={20}  color={theme.colors.grey1}/>
-                    </View>
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Recent')}}>
+                      <View style={{marginRight:10}}>
+                        <Icon name='ellipsis' iconStyle='solid' size={20}  color={theme.colors.grey1}/>
+                      </View>
+                    </TouchableOpacity>
                 //     </TouchableOpacity>
                 //   }
                 //   contentStyle={style.menuOther}
