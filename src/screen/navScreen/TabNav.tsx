@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   Alert,
   Dimensions,
   Platform,
@@ -39,17 +38,16 @@ export default function TabNav(): React.JSX.Element {
         [menuKey]: visible,
       }));
     };
-    const menuItems = {
-      home: [
-        { label: '近期活动', onPress: () => navigation.navigate('Recent') },
-      ],
-      CurriculumScreen: [
-        { label: '设置', onPress: () => Alert.alert('前往设置') },
-        { label: '帮助', onPress: () => Alert.alert('查看帮助') },
-        { label: '退出', onPress: () => Alert.alert('退出') },
-      ],
-    };
-  
+    // const menuItems = {
+    //   home: [
+    //     { label: '近期活动', onPress: () => navigation.navigate('Recent') },
+    //   ],
+    //   CurriculumScreen: [
+    //     { label: '设置', onPress: () => Alert.alert('前往设置') },
+    //     { label: '帮助', onPress: () => Alert.alert('查看帮助') },
+    //     { label: '退出', onPress: () => Alert.alert('退出') },
+    //   ],
+    // };
     return (
       // <Provider>
         <Tab.Navigator

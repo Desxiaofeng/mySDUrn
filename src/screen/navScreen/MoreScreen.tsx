@@ -107,9 +107,18 @@ export default function MoreScreen(): React.JSX.Element {
                             name={item.img as any}
                             iconStyle='solid'
                             size={28}
-                            color={theme.colors.error}
+                            color={theme.colors.grey1}
                             style={{paddingBottom:5}}
                         />
+                        <Text 
+                            style={{ 
+                                position: 'absolute', 
+                                top: -9, 
+                                right: 8,
+                                color: theme.colors.black,
+                                fontSize: 17,
+                            }}
+                        >+</Text>
                         <Text style={{color:theme.colors.grey1}}>{item.name}</Text>
                     </View>
                 </TouchableOpacity>
@@ -162,9 +171,18 @@ export default function MoreScreen(): React.JSX.Element {
                                     name={item.img as any}
                                     iconStyle='solid'
                                     size={28}
-                                    color={theme.colors.error} 
+                                    color={theme.colors.grey1} 
                                     style={{paddingBottom:5}}
                                 />
+                                <Text 
+                                    style={{ 
+                                        position: 'absolute', 
+                                        top: -9, 
+                                        right: 8,
+                                        color: theme.colors.black,
+                                        fontSize: 17,
+                                    }}
+                                >×</Text>
                                 <Text style={{color:theme.colors.black}}>{item.name}</Text>
                             </View>
                         </TouchableOpacity>
