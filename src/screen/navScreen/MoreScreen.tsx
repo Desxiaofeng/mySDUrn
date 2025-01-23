@@ -42,7 +42,7 @@ export default function MoreScreen(): React.JSX.Element {
                     style={{backgroundColor:theme.colors.background}} 
                     onPress={() => setIsChose((isChose)=>(!isChose))}
                 >
-                    <Icon name="plus" size={15} color={theme.colors.black} iconStyle='solid'/>
+                    <Icon name="gear" size={15} color={theme.colors.black} iconStyle='solid'/>
                 </TouchableOpacity>
             ),
         });

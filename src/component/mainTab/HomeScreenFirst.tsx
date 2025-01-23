@@ -43,11 +43,14 @@ export default function HomeScreenFirst() {
               key={index}
               onPress={() => navigation.navigate(item.path)}
           >
-          <View key={index} style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: 5 ,
-            width: (width - 10 * 5) / 5,
+          <View key={index} 
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 5,
+              paddingTop: 4,
+              paddingBottom: 2,
+              width: (width - 15 * 5) / 5,
           }}>
             <Icon name={item.img as 'user'} size={30} color={theme.colors.grey0} iconStyle='solid' />
             <Text style={{color:theme.colors.grey0}}>{item.name}</Text> 
@@ -59,10 +62,12 @@ export default function HomeScreenFirst() {
               onPress={() => navigation.navigate('More')}
             >
           <View style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: 5 ,
-            width: (width - 10 * 5) / 5,
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: 5,
+              paddingTop: 4,
+              paddingBottom: 2,
+              width: (width - 15 * 5) / 5,
           }}>
             <Icon name="plus" size={30} color={theme.colors.grey2} iconStyle="solid"/>
             <Text style={{color:theme.colors.grey2}}>{'更多功能'}</Text> 
