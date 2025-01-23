@@ -16,7 +16,6 @@ import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
-
 interface HeadComponentItem {
     index:number;
     name: string;
@@ -26,7 +25,6 @@ interface HeadComponentItem {
     type: string;
     up: boolean;
 }
-
 export default function MoreScreen(): React.JSX.Element {
     const favorKit = useAppSelector(state => state.user.favorKit);
     const dispatch = useAppDispatch();
@@ -36,7 +34,6 @@ export default function MoreScreen(): React.JSX.Element {
     React.useEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                // <Button onPress={() => setIsChose((isChose)=>(!isChose))} title='+'/>
                 <TouchableOpacity 
                     style={{backgroundColor:theme.colors.background}} 
                     onPress={() => setIsChose((isChose)=>(!isChose))}
@@ -55,7 +52,6 @@ export default function MoreScreen(): React.JSX.Element {
         headComponentData[index].up = true;
         return headComponentData[index]
     });
-
     const groupedItems = useMemo(() => {
         return headComponentData.reduce((acc, item) => {
             if (!acc[item.type]) {
@@ -65,9 +61,8 @@ export default function MoreScreen(): React.JSX.Element {
             return acc;
         }, {} as { [type: string]: HeadComponentItem[] });
     }, [headComponentData]);
-
     const styles = StyleSheet.create({
-        columnstyle: {
+        columnStyle:{
             flexDirection: 'row',
             marginVertical: 10,
             width: '95%',
@@ -78,11 +73,44 @@ export default function MoreScreen(): React.JSX.Element {
             alignItems: 'center',
             paddingTop: 4,
             paddingBottom: 8,
+        },
+        outSideStyle:{ 
+            flex:1,
+            backgroundColor: theme.colors.secondary,
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            marginTop: 13,
+        },
+        topStyle:{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            backgroundColor: theme.colors.white,
+            marginVertical: 10,
+            width: '95%',
+            borderRadius: 10,
+            justifyContent: head.length > 5 ? ('flex-start') : ('space-around'),
+            alignItems: 'center',
+            paddingTop: 4,
+            paddingBottom: 8,
+        },
+        inBoxTopStyle:{
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: 5,
+            width: (width - 15 * 5) / 5,
+        },
+        inBoxButtomStyle:{
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: 5,
+            paddingTop: 4,
+            paddingBottom: 2,
+            width: (width - 15 * 5) / 5,
         }
     })
 
     const TypeComponent = ({ items }: { items: HeadComponentItem[]; type: string }) => (
-        <View style={styles.columnstyle}>
+        <View style={styles.columnStyle}>
             {items.map((item, index) => (
                 <TouchableOpacity
                     key={index}
@@ -95,15 +123,7 @@ export default function MoreScreen(): React.JSX.Element {
                         dispatch(redux_setFavorKit(newFavorKit));
                     }}
                 >
-                    <View
-                        key={index} style={{
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            margin: 5,
-                            paddingTop: 4,
-                            paddingBottom: 2,
-                            width: (width - 15 * 5) / 5,
-                        }}>
+                    <View key={index} style={styles.inBoxButtomStyle}>
                         <Icon
                             name={item.img as any}
                             iconStyle='solid'
@@ -130,26 +150,8 @@ export default function MoreScreen(): React.JSX.Element {
     return (
         (isChose)?(
             <ScrollView style={{backgroundColor: theme.colors.secondary}}>
-            <View 
-                style={{ 
-                    flex:1, backgroundColor: theme.colors.secondary, 
-                    justifyContent: 'flex-start', 
-                    alignItems: 'center',
-                    marginTop: 13,
-                }}
-            >
-                <View style={{
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    backgroundColor: theme.colors.white,
-                    marginVertical: 10,
-                    width: '95%',
-                    borderRadius: 10,
-                    paddingTop: 4,
-                    paddingBottom: 8,
-                    justifyContent: head.length > 5 ? ('flex-start') : ('space-around'),
-                    alignItems: 'center',
-                }}>
+            <View style={styles.outSideStyle}>
+                <View style={styles.topStyle}>
                     {head.length > 0 ? (
                     head.map((item, index) => (
                         <TouchableOpacity
@@ -160,14 +162,7 @@ export default function MoreScreen(): React.JSX.Element {
                                 dispatch(redux_setFavorKit(newFavorKit_));
                             }}
                         >
-                            <View
-                                key={index} 
-                                style={{
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    margin: 5,
-                                    width: (width - 15 * 5) / 5,
-                                }}>
+                            <View key={index} style={styles.inBoxTopStyle}>
                                 <Icon 
                                     name={item.img as any}
                                     iconStyle='solid'
@@ -176,7 +171,7 @@ export default function MoreScreen(): React.JSX.Element {
                                     style={{paddingBottom:5}}
                                 />
                                 <Text 
-                                    style={{ 
+                                    style={{
                                         position: 'absolute', 
                                         top: -9, 
                                         right: 6,
@@ -202,36 +197,13 @@ export default function MoreScreen(): React.JSX.Element {
         </ScrollView>
     ):(
         <ScrollView style={{backgroundColor: theme.colors.secondary}}>
-        <View 
-            style={{ 
-                flex:1, 
-                backgroundColor: theme.colors.secondary, 
-                justifyContent: 'flex-start', 
-                alignItems: 'center',
-                marginTop: 13,
-            }}
-        >
-            <View style={{
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                backgroundColor: theme.colors.white,
-                marginVertical: 10,
-                width: '95%',
-                borderRadius: 10,
-                justifyContent: head.length > 5 ? ('flex-start') : ('space-around'),
-                alignItems: 'center',
-                paddingTop: 4,
-                paddingBottom: 8,
-            }}>
+        <View style={styles.outSideStyle}>
+            <View style={styles.topStyle}>
                 {head.length > 0 ? (
                     head.map((item, index) => (
                         <View
-                            key={index} style={{
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                margin: 5,
-                                width: (width - 15 * 5) / 5,
-                            }}>
+                            key={index} 
+                            style={styles.inBoxTopStyle}>
                             <Icon 
                                 name={item.img as any}
                                 iconStyle='solid'
@@ -249,18 +221,9 @@ export default function MoreScreen(): React.JSX.Element {
                 )}
             </View>
             {Object.keys(groupedItems).map(type => (
-                <View key={type} style={styles.columnstyle}>
+                <View key={type} style={styles.columnStyle}>
                     {groupedItems[type].map((item, index) => (
-                        <View
-                            key={index} 
-                            style={{
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                margin: 5,
-                                paddingTop: 4,
-                                paddingBottom: 2,
-                                width: (width - 15 * 5) / 5,
-                            }}>
+                        <View key={index} style={styles.inBoxButtomStyle}>
                             <Icon
                                 name={item.img as any}
                                 iconStyle='solid'
