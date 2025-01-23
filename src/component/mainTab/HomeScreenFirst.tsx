@@ -35,20 +35,21 @@ export default function HomeScreenFirst() {
       width: width,
       justifyContent: itemsWithUpTrue.length > 5?('flex-start'):('space-around'),
       alignItems: 'center',
+      paddingTop: 8,
     }}>
      {
         itemsWithUpTrue.map((item, index) => (
           <TouchableOpacity
               key={index}
               onPress={() => navigation.navigate(item.path)}
-            >
+          >
           <View key={index} style={{
             justifyContent: 'center',
             alignItems: 'center',
             margin: 5 ,
             width: (width - 10 * 5) / 5,
           }}>
-            <Icon name={item.img} size={30} color={theme.colors.grey0} />
+            <Icon name={item.img as 'user'} size={30} color={theme.colors.grey0} iconStyle='solid' />
             <Text style={{color:theme.colors.grey0}}>{item.name}</Text> 
           </View>
           </TouchableOpacity>
@@ -63,7 +64,7 @@ export default function HomeScreenFirst() {
             margin: 5 ,
             width: (width - 10 * 5) / 5,
           }}>
-            <Icon name="arrow-up" size={30} color={theme.colors.grey2} iconStyle="solid"/>
+            <Icon name="plus" size={30} color={theme.colors.grey2} iconStyle="solid"/>
             <Text style={{color:theme.colors.grey2}}>{'更多功能'}</Text> 
           </View>
           </TouchableOpacity>

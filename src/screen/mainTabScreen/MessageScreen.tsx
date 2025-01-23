@@ -19,7 +19,7 @@ export default function MessageScreen(): React.JSX.Element {
           >
             <Text>Increment</Text>
           </Button>
-            <Text style={{ color: theme.colors.white }}>{count}</Text>
+            <Text style={{ color: theme.colors.black }}>{count}</Text>
           <Button
             onPress={() => dispatch(decrement())}
           >

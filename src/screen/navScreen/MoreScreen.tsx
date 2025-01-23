@@ -11,9 +11,8 @@ import { useAppSelector, useAppDispatch, redux_setFavorKit } from '../../store'
 import { useTheme } from '@rneui/themed';
 import { StackNavParamList } from '../../Root';
 import { headComponentData } from '../../data';
-import { Icon } from '@rneui/themed';
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { useNavigation } from '@react-navigation/native';
-import { color } from '@rneui/base';
 
 const { width } = Dimensions.get('window');
 
@@ -43,7 +42,7 @@ export default function MoreScreen(): React.JSX.Element {
                     style={{backgroundColor:theme.colors.background}} 
                     onPress={() => setIsChose((isChose)=>(!isChose))}
                 >
-                    <Text style={{color:theme.colors.black, fontSize:18}}>+</Text>
+                    <Icon name="plus" size={15} color={theme.colors.black} iconStyle='solid'/>
                 </TouchableOpacity>
             ),
         });
@@ -76,7 +75,9 @@ export default function MoreScreen(): React.JSX.Element {
             backgroundColor: theme.colors.white,
             borderRadius: 10,
             justifyContent: 'flex-start',
-            alignItems: 'center'
+            alignItems: 'center',
+            paddingTop: 4,
+            paddingBottom: 8,
         }
     })
 
@@ -99,12 +100,15 @@ export default function MoreScreen(): React.JSX.Element {
                             justifyContent: 'center',
                             alignItems: 'center',
                             margin: 5,
+                            paddingBottom: 2,
                             width: (width - 15 * 5) / 5,
                         }}>
                         <Icon
-                            name={item.img}
+                            name={item.img as any}
+                            iconStyle='solid'
                             size={30}
                             color={typeof item.style === 'string' ? item.style : '#900'}
+                            style={{paddingBottom:5}}
                         />
                         <Text style={{color:theme.colors.grey1}}>{item.name}</Text>
                     </View>
@@ -116,7 +120,15 @@ export default function MoreScreen(): React.JSX.Element {
 
     return (
         (isChose)?(
-            <View style={{ flex:1, backgroundColor: theme.colors.secondary, justifyContent: 'center', alignItems: 'center' }}>
+            <ScrollView style={{backgroundColor: theme.colors.secondary}}>
+            <View 
+                style={{ 
+                    flex:1, backgroundColor: theme.colors.secondary, 
+                    justifyContent: 'flex-start', 
+                    alignItems: 'center',
+                    marginTop: 13,
+                }}
+            >
                 <View style={{
                     flexDirection: 'row',
                     flexWrap: 'wrap',
@@ -124,6 +136,8 @@ export default function MoreScreen(): React.JSX.Element {
                     marginVertical: 10,
                     width: '95%',
                     borderRadius: 10,
+                    paddingTop: 4,
+                    paddingBottom: 8,
                     justifyContent: head.length > 5 ? ('flex-start') : ('space-around'),
                     alignItems: 'center',
                 }}>
@@ -138,15 +152,20 @@ export default function MoreScreen(): React.JSX.Element {
                             }}
                         >
                             <View
-                                key={index} style={{
+                                key={index} 
+                                style={{
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     margin: 5,
                                     width: (width - 15 * 5) / 5,
                                 }}>
-                                <Icon name={item.img}
+                                <Icon 
+                                    name={item.img as any}
+                                    iconStyle='solid'
                                     size={30}
-                                    color={typeof item.style === 'string' ? item.style : '#900'} />
+                                    color={typeof item.style === 'string' ? item.style : '#900'} 
+                                    style={{paddingBottom:5}}
+                                />
                                 <Text style={{color:theme.colors.black}}>{item.name}</Text>
                             </View>
                         </TouchableOpacity>
@@ -160,8 +179,18 @@ export default function MoreScreen(): React.JSX.Element {
                     <TypeComponent key={type} items={groupedItems[type]} type={type} />
                 ))}
         </View>
+        </ScrollView>
     ):(
-        <View style={{ flex:1, backgroundColor: theme.colors.secondary, justifyContent: 'center', alignItems: 'center' }}>
+        <ScrollView style={{backgroundColor: theme.colors.secondary}}>
+        <View 
+            style={{ 
+                flex:1, 
+                backgroundColor: theme.colors.secondary, 
+                justifyContent: 'flex-start', 
+                alignItems: 'center',
+                marginTop: 13,
+            }}
+        >
             <View style={{
                 flexDirection: 'row',
                 flexWrap: 'wrap',
@@ -170,7 +199,9 @@ export default function MoreScreen(): React.JSX.Element {
                 width: '95%',
                 borderRadius: 10,
                 justifyContent: head.length > 5 ? ('flex-start') : ('space-around'),
-                alignItems: 'center'
+                alignItems: 'center',
+                paddingTop: 4,
+                paddingBottom: 8,
             }}>
                 {head.length > 0 ? (
                     head.map((item, index) => (
@@ -181,9 +212,13 @@ export default function MoreScreen(): React.JSX.Element {
                                 margin: 5,
                                 width: (width - 15 * 5) / 5,
                             }}>
-                            <Icon name={item.img}
+                            <Icon 
+                                name={item.img as any}
+                                iconStyle='solid'
                                 size={30}
-                                color={theme.colors.grey0} />
+                                color={theme.colors.grey0}
+                                style={{paddingBottom:5}}
+                            />
                             <Text style={{color:theme.colors.black}}>{item.name}</Text>
                         </View>
                     ))
@@ -195,16 +230,20 @@ export default function MoreScreen(): React.JSX.Element {
                 <View key={type} style={styles.columnstyle}>
                     {groupedItems[type].map((item, index) => (
                         <View
-                            key={index} style={{
+                            key={index} 
+                            style={{
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 margin: 5,
+                                paddingBottom: 2,
                                 width: (width - 15 * 5) / 5,
                             }}>
                             <Icon
-                                name={item.img}
+                                name={item.img as any}
+                                iconStyle='solid'
                                 size={30}
                                 color={theme.colors.grey0}
+                                style={{paddingBottom:5}}
                             />
                             <Text style={{color:theme.colors.grey1}}>{item.name}</Text>
                         </View>
@@ -212,5 +251,6 @@ export default function MoreScreen(): React.JSX.Element {
                 </View>
             ))}
         </View>
+        </ScrollView>
     ));
 }
