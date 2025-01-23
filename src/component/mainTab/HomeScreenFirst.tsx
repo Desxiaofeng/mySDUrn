@@ -32,8 +32,8 @@ export default function HomeScreenFirst() {
     <View style={{
       flexDirection: 'row',
       flexWrap: 'wrap', 
-      width: width,
-      justifyContent: itemsWithUpTrue.length >= 5?('flex-start'):('space-around'),
+      width: width*0.95,
+      justifyContent: itemsWithUpTrue.length > 3?('flex-start'):('space-around'),
       alignItems: 'center',
       paddingTop: 8,
     }}>

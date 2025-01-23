@@ -40,12 +40,13 @@ export default function MoreScreen(): React.JSX.Element {
                 <TouchableOpacity 
                     style={{backgroundColor:theme.colors.background}} 
                     onPress={() => setIsChose((isChose)=>(!isChose))}
+                    hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
                 >
-                    <Icon name="gear" size={16} color={isChose?theme.colors.error:theme.colors.black} iconStyle='solid'/>
+                    <Icon name={isChose?'floppy-disk':'gears' as any} size={21} color={theme.colors.black} iconStyle='solid'/>
                 </TouchableOpacity>
             ),
         });
-    }, [navigation]);
+    }, [navigation, isChose]);
 
     // dispatch(redux_setFavorKit([]))
     const { theme } = useTheme();
@@ -178,7 +179,7 @@ export default function MoreScreen(): React.JSX.Element {
                                     style={{ 
                                         position: 'absolute', 
                                         top: -9, 
-                                        right: 8,
+                                        right: 6,
                                         color: theme.colors.black,
                                         fontSize: 17,
                                     }}
