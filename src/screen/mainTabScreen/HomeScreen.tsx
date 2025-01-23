@@ -10,7 +10,7 @@ export default function HomeScreen() {
     const dispatch = useAppDispatch()
     // dispatch(redux_setFavorKit([]))
     return (
-        <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: theme.colors.secondary }}>
+        <View style={{ flex:1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: theme.colors.secondary }}>
             <HomeScreenFirst />       
        </View>
     );

@@ -5,8 +5,7 @@ import {
     TouchableOpacity,
     Dimensions,
     StyleSheet,
-    Button,
-    Animated,
+    ScrollView,
 } from 'react-native';
 import { useAppSelector, useAppDispatch, redux_setFavorKit } from '../../store'
 import { useTheme } from '@rneui/themed';
@@ -14,6 +13,7 @@ import { StackNavParamList } from '../../Root';
 import { headComponentData } from '../../data';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import { color } from '@rneui/base';
 
 const { width } = Dimensions.get('window');
 
@@ -37,9 +37,15 @@ export default function MoreScreen(): React.JSX.Element {
 
     React.useEffect(() => {
         navigation.setOptions({
-        headerRight: () => (
-            <Button onPress={() => setIsChose((isChose)=>(!isChose))} title='+'/>
-        ),
+            headerRight: () => (
+                // <Button onPress={() => setIsChose((isChose)=>(!isChose))} title='+'/>
+                <TouchableOpacity 
+                    style={{backgroundColor:theme.colors.background}} 
+                    onPress={() => setIsChose((isChose)=>(!isChose))}
+                >
+                    <Text style={{color:theme.colors.black, fontSize:18}}>+</Text>
+                </TouchableOpacity>
+            ),
         });
     }, [navigation]);
 
@@ -50,8 +56,6 @@ export default function MoreScreen(): React.JSX.Element {
         headComponentData[index].up = true;
         return headComponentData[index]
     });
-
-
 
     const groupedItems = useMemo(() => {
         return headComponentData.reduce((acc, item) => {
@@ -102,7 +106,7 @@ export default function MoreScreen(): React.JSX.Element {
                             size={30}
                             color={typeof item.style === 'string' ? item.style : '#900'}
                         />
-                        <Text>{item.name}</Text>
+                        <Text style={{color:theme.colors.grey1}}>{item.name}</Text>
                     </View>
                 </TouchableOpacity>
             ))}
@@ -112,7 +116,7 @@ export default function MoreScreen(): React.JSX.Element {
 
     return (
         (isChose)?(
-            <View style={{ backgroundColor: theme.colors.secondary, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ flex:1, backgroundColor: theme.colors.secondary, justifyContent: 'center', alignItems: 'center' }}>
                 <View style={{
                     flexDirection: 'row',
                     flexWrap: 'wrap',
@@ -121,7 +125,7 @@ export default function MoreScreen(): React.JSX.Element {
                     width: '95%',
                     borderRadius: 10,
                     justifyContent: head.length > 5 ? ('flex-start') : ('space-around'),
-                    alignItems: 'center'
+                    alignItems: 'center',
                 }}>
                     {head.length > 0 ? (
                     head.map((item, index) => (
@@ -143,12 +147,12 @@ export default function MoreScreen(): React.JSX.Element {
                                 <Icon name={item.img}
                                     size={30}
                                     color={typeof item.style === 'string' ? item.style : '#900'} />
-                                <Text>{item.name}</Text>
+                                <Text style={{color:theme.colors.black}}>{item.name}</Text>
                             </View>
                         </TouchableOpacity>
                     ))
                 ) : (
-                    <Text>没有选择的项目</Text>
+                    <Text style={{color:theme.colors.black}}>没有选择的项目</Text>
                 )
                     }
                 </View>
@@ -157,7 +161,7 @@ export default function MoreScreen(): React.JSX.Element {
                 ))}
         </View>
     ):(
-        <View style={{ backgroundColor: theme.colors.secondary, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flex:1, backgroundColor: theme.colors.secondary, justifyContent: 'center', alignItems: 'center' }}>
             <View style={{
                 flexDirection: 'row',
                 flexWrap: 'wrap',
@@ -180,11 +184,11 @@ export default function MoreScreen(): React.JSX.Element {
                             <Icon name={item.img}
                                 size={30}
                                 color={theme.colors.grey0} />
-                            <Text>{item.name}</Text>
+                            <Text style={{color:theme.colors.black}}>{item.name}</Text>
                         </View>
                     ))
                 ) : (
-                    <Text>没有选择的项目</Text>
+                    <Text style={{color:theme.colors.black}}>没有选择的项目</Text>
                 )}
             </View>
             {Object.keys(groupedItems).map(type => (
@@ -202,7 +206,7 @@ export default function MoreScreen(): React.JSX.Element {
                                 size={30}
                                 color={theme.colors.grey0}
                             />
-                            <Text>{item.name}</Text>
+                            <Text style={{color:theme.colors.grey1}}>{item.name}</Text>
                         </View>
                     ))}
                 </View>

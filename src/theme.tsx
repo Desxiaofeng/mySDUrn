@@ -25,7 +25,7 @@ export function getTheme(themeMode: any) {
       primary: "#439ce0",
       secondary: "rgb(24 24 24)",
       background: "rgb(19 19 19)",
-      white: "#f2f2f2",
+      white: '#242424',
       black: "#ffffff",
       grey0: '#e1e8ee',
       grey1: "#bdc6cf",

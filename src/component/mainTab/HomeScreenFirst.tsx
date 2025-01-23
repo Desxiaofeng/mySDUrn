@@ -34,7 +34,7 @@ export default function HomeScreenFirst() {
       flexWrap: 'wrap', 
       width: width,
       justifyContent: itemsWithUpTrue.length > 5?('flex-start'):('space-around'),
-      alignItems: 'center'
+      alignItems: 'center',
     }}>
      {
         itemsWithUpTrue.map((item, index) => (
@@ -49,7 +49,7 @@ export default function HomeScreenFirst() {
             width: (width - 10 * 5) / 5,
           }}>
             <Icon name={item.img} size={30} color={theme.colors.grey0} />
-            <Text>{item.name}</Text> 
+            <Text style={{color:theme.colors.grey0}}>{item.name}</Text> 
           </View>
           </TouchableOpacity>
         ))
@@ -64,7 +64,7 @@ export default function HomeScreenFirst() {
             width: (width - 10 * 5) / 5,
           }}>
             <Icon name={'happy'} size={30} color={theme.colors.grey2} />
-            <Text>{'更多功能'}</Text> 
+            <Text style={{color:theme.colors.grey2}}>{'更多功能'}</Text> 
           </View>
           </TouchableOpacity>
     </View>
