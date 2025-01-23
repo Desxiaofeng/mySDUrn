@@ -57,7 +57,7 @@ export default function TabNav(): React.JSX.Element {
           screenOptions={({ route }) => ({
             headerStyle: { backgroundColor: theme.colors.background },
             headerTitleStyle: { color: theme.colors.black, fontSize: 18, fontWeight: 'bold' },
-            tabBarStyle: { backgroundColor: theme.colors.background },
+            tabBarStyle: { backgroundColor: theme.colors.background, borderColor: theme.colors.background },
             tabBarLabelStyle: {
               fontSize: 15,
               color: theme.colors.black,
