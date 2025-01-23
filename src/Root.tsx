@@ -1,6 +1,6 @@
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Platform, SafeAreaView, Dimensions } from 'react-native';
+import { Platform, SafeAreaView, Dimensions, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -37,6 +37,7 @@ function StackNav() : React.JSX.Element {
   const { theme } = useTheme();
   const screenHeight = Dimensions.get('window').height;
   const screenWidth = Dimensions.get('window').width;
+  const [count, setCount] = React.useState(0);
   return (
     <Stack.Navigator
       initialRouteName={data.init.tab}
@@ -75,6 +76,10 @@ function StackNav() : React.JSX.Element {
       <Stack.Screen
         name="More"
         component={MoreScreen}
+        options={{
+          title:"更多",
+          headerRight: () => <Button title='+'/>
+        }}
       />
     </Stack.Navigator>
   );

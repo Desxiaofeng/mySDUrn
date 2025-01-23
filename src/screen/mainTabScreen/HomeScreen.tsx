@@ -11,7 +11,7 @@ export default function HomeScreen() {
     // dispatch(redux_setFavorKit([]))
     return (
         <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: theme.colors.secondary }}>
-            <HomeScreenFirst filterMoreType={false} />       
+            <HomeScreenFirst />       
        </View>
     );
 }

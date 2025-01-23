@@ -17,7 +17,7 @@ import MessageScreen from '../../screen/mainTabScreen/MessageScreen';
 import HomeScreen from '../../screen/mainTabScreen/HomeScreen';
 // import UserHeadCenter from '../../component/mainTab/UserHeadCenter';
 import { TabNavParamList, StackNavParamList} from '../../Root';
-import { useTheme } from '@rneui/themed';
+import { useTheme, ListItem, Icon } from '@rneui/themed';
 import { data } from '../../data';
 
 const Tab = createBottomTabNavigator<TabNavParamList>();
@@ -32,12 +32,12 @@ export default function TabNav(): React.JSX.Element {
       home: false,
       curriculum: false
     });
-    // const toggleMenu = (menuKey: keyof typeof menuVisible, visible: boolean) => {
-    //   setMenuVisible((prev) => ({
-    //     ...prev,
-    //     [menuKey]: visible,
-    //   }));
-    // };
+    const toggleMenu = (menuKey: keyof typeof menuVisible, visible: boolean) => {
+      setMenuVisible((prev) => ({
+        ...prev,
+        [menuKey]: visible,
+      }));
+    };
     const menuItems = {
       home: [
         { label: '近期活动', onPress: () => navigation.navigate('Recent') },
@@ -107,33 +107,7 @@ export default function TabNav(): React.JSX.Element {
                   <Text style={{ color: theme.colors.grey0 }}>图书/咨询/用户</Text>
                 </TouchableOpacity>
               ),
-              headerLeft: UserHead,
-              headerRight: () => (
-                // <Menu
-                //   visible={menuVisible.home}
-                //   onDismiss={() => toggleMenu('home', false)}
-                //   anchor={
-                //     <TouchableOpacity
-                //       onPress={() => toggleMenu('home', true)}
-                //       style={style.cdots}
-                //     >
-                      <Text style={{ color: theme.colors.black }}>···</Text>
-                //     </TouchableOpacity>
-                //   }
-                //   contentStyle={style.menuHome}
-                // >
-                //   {menuItems.home.map((item, index) => (
-                //     <Menu.Item
-                //       key={index}
-                //       onPress={() => {
-                //         toggleMenu('home', false);
-                //         item.onPress();
-                //       }}
-                //       title={item.label}
-                //     />
-                //   ))}
-                // </Menu>
-              ),
+              headerLeft: UserHead
             }}
           />
           <Tab.Screen
@@ -150,7 +124,7 @@ export default function TabNav(): React.JSX.Element {
               },
               headerTitle: () => (
                 <View>
-                  <TouchableWithoutFeedback onPress={() => setIsPoem(!isPoem)}>
+                  <TouchableOpacity onPress={() => setIsPoem(!isPoem)}>
                     <Text style={[{
                         fontSize: 18, // 动态缩放字体大小
                         fontWeight: 'bold', // 加粗字体
@@ -159,7 +133,7 @@ export default function TabNav(): React.JSX.Element {
                       { color: theme.colors.black }]}>
                       {isPoem ? data.poem.winter : data.user.name}
                     </Text>
-                  </TouchableWithoutFeedback>
+                  </TouchableOpacity>
                 </View>
               ),
               headerTitleAlign: 'center',

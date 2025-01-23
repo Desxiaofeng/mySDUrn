@@ -4,12 +4,9 @@ import { headComponentData } from '../../data';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useTheme } from '@rneui/themed';
 import { TabNavParamList, StackNavParamList} from '../../Root';
 import { useAppSelector, useAppDispatch, redux_setFavorKit } from '../../store'
-
-interface HomeScreenFirstProps {
-  filterMoreType?: boolean; 
-}
 
 interface HeadComponentItem {
   index:number,
@@ -23,7 +20,8 @@ interface HeadComponentItem {
 
 const { width } = Dimensions.get('window');
 
-export default function HomeScreenFirst({ filterMoreType }: HomeScreenFirstProps) {
+export default function HomeScreenFirst() {
+   const { theme } = useTheme();
    const favorKit = useAppSelector(state => state.user.favorKit)
    const navigation = useNavigation<NativeStackNavigationProp<StackNavParamList>>();
    const itemsWithUpTrue: HeadComponentItem[] = favorKit.map(index => {
@@ -50,7 +48,7 @@ export default function HomeScreenFirst({ filterMoreType }: HomeScreenFirstProps
             margin: 5 ,
             width: (width - 10 * 5) / 5,
           }}>
-            <Icon name={item.img} size={30} color={typeof item.style === 'string' ? item.style : '#900'} />
+            <Icon name={item.img} size={30} color={theme.colors.grey0} />
             <Text>{item.name}</Text> 
           </View>
           </TouchableOpacity>
@@ -65,7 +63,7 @@ export default function HomeScreenFirst({ filterMoreType }: HomeScreenFirstProps
             margin: 5 ,
             width: (width - 10 * 5) / 5,
           }}>
-            <Icon name={'happy'} size={30} color={'#900'} />
+            <Icon name={'happy'} size={30} color={theme.colors.grey2} />
             <Text>{'更多功能'}</Text> 
           </View>
           </TouchableOpacity>
